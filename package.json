@@ -1,0 +1,30 @@
+{
+  "name": "spawn-stream-grep",
+  "version": "0.1.0",
+  "description": "Spawns a child process and greps its output",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vramdal/spawn-stream-grep.git"
+  },
+  "keywords": [
+    "spawn",
+    "stream",
+    "grep"
+  ],
+  "bin": {
+    "snippet": "./index.js"
+  },
+  "author": "Vidar Skauge Ramdal",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/vramdal/spawn-stream-grep/issues"
+  },
+  "homepage": "https://github.com/vramdal/spawn-stream-grep#readme",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}
