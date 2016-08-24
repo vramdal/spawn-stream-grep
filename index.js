@@ -26,18 +26,19 @@ try {
         printHelp();
     }
 
-    console.info("Running " + commandLineAndArguments.join(" "));
+    console.info("Running " + commandLineAndArguments.slice(1).join(" "));
+    console.info("looking for " + commandLineAndArguments[0]);
     var ps = spawn(commandLineAndArguments[1], commandLineAndArguments.slice(2));
     var grep = spawn('grep', [commandLineAndArguments[0]]);
     var result = false;
 
     console.info("Child process PID: " + ps.pid);
     ps.stdout.on('data', function (data) {
-        console.log("" + data);
+        process.stdout.write(data);
         grep.stdin.write(data);
     });
     ps.stderr.on('data', function(data) {
-        console.log(data);
+        process.stderr.write(data);
     });
     ps.on("error", function(error) {
         console.error(error);
@@ -55,7 +56,7 @@ try {
     });
 
     grep.stderr.on('data', function(data)  {
-        console.error("" + data);
+        console.error(chalk.bold.red("" + data));
     });
 
     grep.on('close', function(code)  {
